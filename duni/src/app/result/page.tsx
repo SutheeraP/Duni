@@ -167,11 +167,11 @@ const Page = () => {
                 <div className='flex flex-col gap-3 my-3'>
 
                     {(allData.filter((sequence) => sequence.length == selectLen)).map((sequence, index) => (
-                        <div key={index} className='border p-2'>
+                        <div key={index} className='border p-3'>
                             {sequence.map((data: res, index: number) => (
-                                <div key={index} className='grid grid-cols-5'>
-                                    <div className='grid-span-1'>{data.showTime}</div>
-                                    <div className='grid-span-4'>{data.title}</div>
+                                <div key={index} className='grid grid-cols-5 gap-4'>
+                                    <div className='col-span-1'>{data.showTime}</div>
+                                    <div className='col-span-4'>| {data.title}</div>
                                 </div>
                             ))}
                         </div>
