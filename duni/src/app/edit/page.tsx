@@ -4,10 +4,8 @@ import React, { useEffect, useState } from 'react'
 import Nav from '../component/Nav'
 import TimeInput from '../component/TimeInput'
 import { useRouter } from 'next/navigation'
-import { parse } from 'path'
-import { parseArgs } from 'util'
 
-const page = () => {
+const Page = () => {
     const router = useRouter()
 
     const [title, setTitle] = useState('');
@@ -161,4 +159,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
