@@ -71,7 +71,7 @@ export default function Home() {
 
       <Nav />
 
-      <div className="mt-20 flex flex-col gap-4">
+      <div className="mt-20 mb-40 flex flex-col gap-6">
         {allData.map((data, index) => (
           <div key={index} className={`border p-2 ${data.isShow ? '' : 'opacity-50'}`}>
             <div className="grid grid-cols-5">
@@ -80,14 +80,14 @@ export default function Home() {
                 <div className="font-light text-sm">{data.duration} นาที</div>
               </div>
               <div className="col-span-2 flex justify-end gap-3">
-                <div onClick={() => handleEdit(index)}>edit</div>
-                <div onClick={() => toggleShow(index)}>show</div>
+                <div className="cursor-pointer " onClick={() => handleEdit(index)}>edit</div>
+                <div className="cursor-pointer " onClick={() => toggleShow(index)}>show</div>
               </div>
             </div>
 
-            <div className="grid grid-cols-4 mt-2 text-sm">
+            <div className="flex mt-2 text-sm gap-3">
               {data.showTime.map((time, index) => (
-                <div key={index}>{time}</div>
+                <div key={index} className="border py-1 px-2 text-center">{time}</div>
               ))}
             </div>
 
@@ -103,11 +103,11 @@ export default function Home() {
 
 
         {(allData.filter((data) => data.isShow)).length >= 2 ?
-          <div className="text-center">
+          <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
             <Link href='/result'>
-              <div className="border p-3" onClick={() => { localStorage.setItem('allData', JSON.stringify(allData)) }}>คิดรอบ</div>
+              <div className="cursor-pointer border p-3 bg-white" onClick={() => { localStorage.setItem('allData', JSON.stringify(allData)) }}>คิดรอบ</div>
             </Link>
-            <div className="underline text-sm mt-2" onClick={() => { setSureDel(true) }}>ลบทั้งหมด</div>
+            <div className="cursor-pointer  underline text-sm mt-2" onClick={() => { setSureDel(true) }}>ลบทั้งหมด</div>
           </div>
           : null}
       </div>

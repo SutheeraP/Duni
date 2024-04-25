@@ -140,8 +140,10 @@ const Page = () => {
             <div className='mt-20'>
                 <div className='flex flex-col gap-2'>
                     <div className='font-bold'>เรื่องที่สนใจ</div>
-                    <input id='inputTitle' maxLength={15} className='border p-1' type="text" placeholder='ชื่อเรื่อง' onChange={(e) => { setTitle(e.target.value) }} />
-                    <input id='inputDuration' className='border p-1' type="number" placeholder='ความยาว(นาที)' onChange={(e) => { setDuration(parseInt(e.target.value)) }} />
+                    <input id='inputTitle' maxLength={15} className='border p-1' type="text" placeholder='ชื่อเรื่อง'
+                        onChange={(e) => { setTitle(e.target.value) }} />
+                    <input id='inputDuration' className='border p-1' type="number" placeholder='ความยาว(นาที)'
+                        onChange={(e) => { setDuration(parseInt(e.target.value)) }} />
 
                     <div className='font-bold'>รอบฉาย</div>
                     <div className='grid grid-cols-4 gap-3 text-sm'>
@@ -155,8 +157,11 @@ const Page = () => {
                         <div className='text-red-600 text-sm'>{feedback}</div> : null
                     }
 
-                    <div className='border p-3 text-center' onClick={validateEdit}>บันทึก</div>
-                    <div className='text-center underline text-sm' onClick={() => { setSureDel(true) }}>ลบเรื่องนี้</div>
+                    <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
+
+                        <div className='border p-3 text-center bg-white' onClick={validateEdit}>บันทึก</div>
+                        <div className='text-center underline text-sm' onClick={() => { setSureDel(true) }}>ลบเรื่องนี้</div>
+                    </div>
                 </div>
             </div>
         </div>

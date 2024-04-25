@@ -153,9 +153,9 @@ const Page = () => {
             <div className='mt-20'>
                 <div className='flex text-center gap-3 justify-center my-3'>
                     {option.map((opt) => (
-                        <div key={opt} className={`${opt == selectLen ? 'text-red-600' : ''}`} onClick={() => { setSelectLen(opt) }}>{opt}</div>
+                        <div key={opt} className={`cursor-pointer border border-black rounded-full w-8 h-8 flex justify-center items-center ${opt == selectLen ? 'bg-black text-white' : ''}`} onClick={() => { setSelectLen(opt) }}>{opt}</div>
                     ))}
-                    {option.length ? <div>เรื่อง</div> : null}
+                    {option.length ? <div className='flex items-center'>เรื่อง</div> : null}
 
                 </div>
 
@@ -178,9 +178,12 @@ const Page = () => {
                     ))}
                 </div>
 
-                <Link href='/'>
-                    <div className='border text-center p-3'>แก้ไข</div>
-                </Link>
+                <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
+
+                    <Link href='/'>
+                        <div className='border text-center p-3 bg-white'>แก้ไข</div>
+                    </Link>
+                </div>
             </div>
         </div>
     )

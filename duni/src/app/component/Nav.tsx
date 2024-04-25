@@ -13,7 +13,7 @@ const Nav = () => {
                         <div className='text-center font-bold'>DUNI</div>
                     </Link>
                 </div>
-                <div className='w-full flex justify-end' onClick={() => { setShowinfo(!showInfo) }}>?</div>
+                <div className='cursor-pointer w-full flex justify-end' onClick={() => { setShowinfo(!showInfo) }}>?</div>
             </div>
             
             <hr />
