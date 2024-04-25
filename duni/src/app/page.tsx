@@ -1,10 +1,10 @@
 'use client'
 
-import Image from "next/image";
 import NewMovieBtn from "./component/NewMovieBtn";
 import Nav from "./component/Nav";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation'
+import Link from "next/link";
 
 
 
@@ -45,7 +45,7 @@ export default function Home() {
   const [sureDel, setSureDel] = useState(false);
   const deleteAll = () => {
     localStorage.clear()
-    location.reload() 
+    location.reload()
   }
 
 
@@ -93,9 +93,12 @@ export default function Home() {
             <NewMovieBtn />
           </div>
           : null}
+
         {allData.length >= 2 ?
           <div className="text-center">
-            <div className="border p-3">คิดรอบ</div>
+            <Link href='/result'>
+              <div className="border p-3">คิดรอบ</div>
+            </Link>
             <div className="underline text-sm mt-2" onClick={() => { setSureDel(true) }}>ลบทั้งหมด</div>
           </div>
           : null}
