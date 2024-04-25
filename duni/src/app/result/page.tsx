@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Nav from '../component/Nav'
 import Link from 'next/link';
 
-const page = () => {
+const Page = () => {
     const [allData, setAllData] = useState<any[]>([]);
     const [option, setOption] = useState<number[]>([]);
     const [selectLen, setSelectLen] = useState(2);
@@ -186,4 +186,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
