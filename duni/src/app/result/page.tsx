@@ -148,7 +148,7 @@ const Page = () => {
     }
 
     return (
-        <div className='min-h-screen m-3'>
+        <div className='min-h-dvh m-3'>
             <Nav />
             <div className='mt-20'>
                 <div className='flex text-center gap-3 justify-center my-3'>

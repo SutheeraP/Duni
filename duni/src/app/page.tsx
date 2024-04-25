@@ -57,7 +57,7 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen p-3">
+    <div className="min-h-dvh p-3">
 
       {sureDel ? <div className='absolute z-10 bg-[#0005] w-full h-full flex'>
         <div className='text-center p-3 bg-white m-auto w-[300px]'>

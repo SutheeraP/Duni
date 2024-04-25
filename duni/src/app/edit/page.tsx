@@ -14,6 +14,7 @@ const Page = () => {
 
     const [allData, setAllData] = useState<obj[]>([]);
     const [nowEdit, setNowEdit] = useState(0);
+    const [feedback, setFeedback] = useState('');
 
     interface obj {
         title: string;
@@ -72,13 +73,13 @@ const Page = () => {
 
         //เชค
         if (!title || !duration || !allTime.length) {
-            console.log('กรอกข้อมูลให้ครบถ้วน')
+            setFeedback('กรอกข้อมูลให้ครบถ้วน')
         }
         else if (other.some((data) => data.title === title)) {
-            console.log('ชื่อเรื่องนี้ถูกใช้แล้ว')
+            setFeedback('ชื่อเรื่องนี้ถูกใช้แล้ว')
         }
-        else if(duration>200){
-            console.log('ความยาวต้องน้อยกว่า 200 นาที')
+        else if (duration > 200) {
+            setFeedback('ความยาวต้องน้อยกว่า 200 นาที')
         }
         else {
             let uniqueTime = new Set(allTime) //ตัดซ้ำ by set
@@ -138,11 +139,11 @@ const Page = () => {
             <Nav />
             <div className='mt-20'>
                 <div className='flex flex-col gap-2'>
-                    <div>เรื่องที่สนใจ</div>
+                    <div className='font-bold'>เรื่องที่สนใจ</div>
                     <input id='inputTitle' maxLength={15} className='border p-1' type="text" placeholder='ชื่อเรื่อง' onChange={(e) => { setTitle(e.target.value) }} />
                     <input id='inputDuration' className='border p-1' type="number" placeholder='ความยาว(นาที)' onChange={(e) => { setDuration(parseInt(e.target.value)) }} />
 
-                    <div>รอบฉาย</div>
+                    <div className='font-bold'>รอบฉาย</div>
                     <div className='grid grid-cols-4 gap-3 text-sm'>
                         {numTimeInput.map((number, index) => (
                             <div key={index}>
@@ -150,6 +151,9 @@ const Page = () => {
                             </div>
                         ))}
                     </div>
+                    {feedback ?
+                        <div className='text-red-600 text-sm'>{feedback}</div> : null
+                    }
 
                     <div className='border p-3 text-center' onClick={validateEdit}>บันทึก</div>
                     <div className='text-center underline text-sm' onClick={() => { setSureDel(true) }}>ลบเรื่องนี้</div>
