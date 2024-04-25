@@ -150,12 +150,13 @@ const page = () => {
     return (
         <div className='min-h-screen m-3'>
             <Nav />
-            <div className='mt-3'>
+            <div className='mt-20'>
                 <div className='flex text-center gap-3 justify-center my-3'>
                     {option.map((opt) => (
-                        <div key={opt} className={`${opt == selectLen ? 'text-red-600': ''}`} onClick={() => { setSelectLen(opt) }}>{opt}</div>
+                        <div key={opt} className={`${opt == selectLen ? 'text-red-600' : ''}`} onClick={() => { setSelectLen(opt) }}>{opt}</div>
                     ))}
-                    <div>เรื่อง</div>
+                    {option.length ? <div>เรื่อง</div> : null}
+
                 </div>
 
                 <div className='text-center text-sm'>

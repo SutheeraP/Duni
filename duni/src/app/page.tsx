@@ -48,9 +48,16 @@ export default function Home() {
     location.reload()
   }
 
+  // show
+  const toggleShow = (index: number) => {
+    let copyData = [...allData]
+    copyData[index].isShow = !copyData[index].isShow
+    setAllData(copyData)
+  }
+
 
   return (
-    <div className="min-h-screen m-3">
+    <div className="min-h-screen p-3">
 
       {sureDel ? <div className='absolute z-10 bg-[#0005] w-full h-full flex'>
         <div className='text-center p-3 bg-white m-auto w-[300px]'>
@@ -64,9 +71,9 @@ export default function Home() {
 
       <Nav />
 
-      <div className="mt-3 flex flex-col gap-4">
+      <div className="mt-20 flex flex-col gap-4">
         {allData.map((data, index) => (
-          <div key={index} className="border p-2">
+          <div key={index} className={`border p-2 ${data.isShow ? '' : 'opacity-50'}`}>
             <div className="grid grid-cols-5">
               <div className="col-span-3">
                 <div className="font-bold">{data.title}</div>
@@ -74,7 +81,7 @@ export default function Home() {
               </div>
               <div className="col-span-2 flex justify-end gap-3">
                 <div onClick={() => handleEdit(index)}>edit</div>
-                <div>show</div>
+                <div onClick={() => toggleShow(index)}>show</div>
               </div>
             </div>
 
@@ -94,10 +101,11 @@ export default function Home() {
           </div>
           : null}
 
-        {allData.length >= 2 ?
+
+        {(allData.filter((data) => data.isShow)).length >= 2 ?
           <div className="text-center">
             <Link href='/result'>
-              <div className="border p-3">คิดรอบ</div>
+              <div className="border p-3" onClick={() => { localStorage.setItem('allData', JSON.stringify(allData)) }}>คิดรอบ</div>
             </Link>
             <div className="underline text-sm mt-2" onClick={() => { setSureDel(true) }}>ลบทั้งหมด</div>
           </div>

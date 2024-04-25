@@ -138,14 +138,14 @@ const page = () => {
             </div> : null}
 
             <Nav />
-            <div className='mt-3'>
+            <div className='mt-20'>
                 <div className='flex flex-col gap-2'>
                     <div>เรื่องที่สนใจ</div>
                     <input id='inputTitle' maxLength={15} className='border p-1' type="text" placeholder='ชื่อเรื่อง' onChange={(e) => { setTitle(e.target.value) }} />
                     <input id='inputDuration' className='border p-1' type="number" placeholder='ความยาว(นาที)' onChange={(e) => { setDuration(parseInt(e.target.value)) }} />
 
                     <div>รอบฉาย</div>
-                    <div className='grid grid-cols-4 gap-3'>
+                    <div className='grid grid-cols-4 gap-3 text-sm'>
                         {numTimeInput.map((number, index) => (
                             <div key={index}>
                                 <TimeInput />
