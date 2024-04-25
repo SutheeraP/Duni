@@ -126,12 +126,12 @@ const Page = () => {
     return (
         <div className='m-3'>
 
-            {sureDel ? <div className='absolute z-10 bg-[#0005] w-full h-full flex'>
+            {sureDel ? <div className='fixed z-20 bg-[#0005] w-full h-full top-0 left-0 flex'>
                 <div className='text-center p-3 bg-white m-auto w-[300px]'>
                     <div className='py-4'>ลบเรื่องนี้?</div>
                     <div className='grid grid-cols-2'>
-                        <div onClick={() => { setSureDel(false) }}>ยกเลิก</div>
-                        <div onClick={deleteThis}>ยืนยัน</div>
+                        <div className="cursor-pointer" onClick={() => { setSureDel(false) }}>ยกเลิก</div>
+                        <div className="cursor-pointer font-bold" onClick={deleteThis}>ยืนยัน</div>
                     </div>
                 </div>
             </div> : null}
@@ -160,7 +160,7 @@ const Page = () => {
                     <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
 
                         <div className='border p-3 text-center bg-white' onClick={validateEdit}>บันทึก</div>
-                        <div className='text-center underline text-sm' onClick={() => { setSureDel(true) }}>ลบเรื่องนี้</div>
+                        <div className='text-center underline text-sm mt-2' onClick={() => { setSureDel(true) }}>ลบเรื่องนี้</div>
                     </div>
                 </div>
             </div>

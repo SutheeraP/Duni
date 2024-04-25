@@ -59,12 +59,12 @@ export default function Home() {
   return (
     <div className="min-h-dvh p-3">
 
-      {sureDel ? <div className='absolute z-10 bg-[#0005] w-full h-full flex'>
+      {sureDel ? <div className='fixed z-20 bg-[#0005] w-full h-full top-0 left-0 flex'>
         <div className='text-center p-3 bg-white m-auto w-[300px]'>
           <div className='py-4'>ลบข้อมูลทั้งหมด?</div>
           <div className='grid grid-cols-2'>
-            <div onClick={() => { setSureDel(false) }}>ยกเลิก</div>
-            <div onClick={deleteAll}>ยืนยัน</div>
+            <div className="cursor-pointer" onClick={() => { setSureDel(false) }}>ยกเลิก</div>
+            <div className="cursor-pointer font-bold" onClick={deleteAll}>ยืนยัน</div>
           </div>
         </div>
       </div> : null}
