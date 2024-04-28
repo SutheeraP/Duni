@@ -85,6 +85,7 @@ const Home = (
             l2={l2}
             l3={l3}
             l4={l4}
+            lang={lang}
             />
 
       <div className="mt-20 mb-40 flex flex-col gap-6">

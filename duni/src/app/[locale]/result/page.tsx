@@ -1,9 +1,10 @@
 import PageResult from '../pageContent/result';
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const Page = () => {
     const t = useTranslations('Resultpage');
     const n = useTranslations('Navtext');
+    const lang = useLocale();
     return (
         <PageResult
         movies={t('movies')}
@@ -14,6 +15,7 @@ const Page = () => {
       l2={n('l2')}
       l3={n('l3')}
       l4={n('l4')}
+      lang={lang}
         />
     )
 }

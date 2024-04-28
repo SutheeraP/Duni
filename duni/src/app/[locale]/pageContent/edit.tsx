@@ -24,6 +24,7 @@ const Page = (
         l2 = '',
         l3 = '',
         l4 = '',
+        lang='',
     }) => {
     const router = useRouter()
 
@@ -161,6 +162,7 @@ const Page = (
                 l2={l2}
                 l3={l3}
                 l4={l4}
+                lang={lang}
             />
 
             <div className='mt-20'>

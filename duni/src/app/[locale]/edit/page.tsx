@@ -1,10 +1,11 @@
 import PageContent from '../pageContent/edit'
 import React, { useEffect, useState } from 'react'
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const Page = () => {
     const t = useTranslations('Editpage');
     const n = useTranslations('Navtext');
+    const lang = useLocale();
 
     return (
         <PageContent
@@ -25,6 +26,7 @@ const Page = () => {
             l2={n('l2')}
             l3={n('l3')}
             l4={n('l4')}
+            lang={lang}
         />
     )
 }
