@@ -1,12 +1,17 @@
 import Link from 'next/link'
 import React from 'react'
 
-const NewMovieBtn = () => {
+const NewMovieBtn = (
+    {
+        text='',
+        lang='',
+    }
+) => {
     return (
         <div>
-            <Link href='/edit'>
+            <Link href={`/${lang}/edit`}>
                 <div className='border p-3 text-center'>
-                    + เรื่องที่สนใจ
+                    + {text}
                 </div>
             </Link>
         </div>

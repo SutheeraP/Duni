@@ -127,7 +127,7 @@ const Page = (
                 let newData = [...allData]
                 newData[nowEdit] = thisData
                 localStorage.setItem('allData', JSON.stringify(newData))
-                router.push('/')
+                router.push(`/${lang}`)
             }
         }
     }

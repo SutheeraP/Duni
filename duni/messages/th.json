@@ -2,7 +2,8 @@
   "Homepage": {
     "minutes": "นาที",
     "schedules": "คิดรอบ",
-    "delall": "ลบทั้งหมด"
+    "delall": "ลบทั้งหมด",
+    "interestText": "เรื่องที่สนใจ"
   },
   "Editpage": {
     "interestText": "เรื่องที่สนใจ",

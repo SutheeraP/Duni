@@ -8,12 +8,12 @@ import { useRouter } from 'next/navigation'
 
 const Nav = (
     {
-        logline='',
-        l1='',
-        l2='',
-        l3='',
-        l4='',
-        lang='',
+        logline = '',
+        l1 = '',
+        l2 = '',
+        l3 = '',
+        l4 = '',
+        lang = '',
     }
 ) => {
     const [showInfo, setShowinfo] = useState(false)
@@ -23,29 +23,23 @@ const Nav = (
 
 
     const toggleLang = () => {
-        if(lang == 'en'){
-            let newPath = pathname.replace('en', 'th')
-            router.push(newPath)
-        }
-        else{
-            let newPath = pathname.replace('th', 'en')
-            router.push(newPath)
-        }
-        console.log(pathname)
+        let newPath
+        lang == 'en' ? newPath = pathname.replace('en', 'th') : newPath = pathname.replace('th', 'en')
+        router.push(newPath)
     }
 
     return (
         <div className='fixed top-0 left-0 z-10 w-full'>
             <div className='grid grid-cols-3 p-3 relative z-10 bg-white max-w-screen-sm mx-auto'>
-                <div className='cursor-pointer w-full flex justify-start' onClick={() => { setShowinfo(!showInfo); setShowSetting(false)  }}>?</div>
+                <div className='cursor-pointer w-full flex justify-start' onClick={() => { setShowinfo(!showInfo); setShowSetting(false) }}>?</div>
                 <div className='w-full'>
-                    <Link href='/'>
+                    <Link href={`/${lang}`}>
                         <div className='text-center font-bold'>DUNI</div>
                     </Link>
                 </div>
                 <div className='cursor-pointer w-full flex justify-end' onClick={() => { setShowSetting(!showSetting); setShowinfo(false) }}>O</div>
             </div>
-            
+
             <hr />
 
             {showInfo ?

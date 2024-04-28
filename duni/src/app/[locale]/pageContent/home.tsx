@@ -17,6 +17,7 @@ const Home = (
     l2 = '',
     l3 = '',
     l4 = '',
+    interestText = ''
   }) => {
   //   const t = useTranslations('Index');
   const router = useRouter()
@@ -115,7 +116,7 @@ const Home = (
 
         {allData.length < 8 ?
           <div onClick={() => (handleEdit(allData.length))}>
-            <NewMovieBtn />
+            <NewMovieBtn text={interestText} lang={lang}/>
           </div>
           : null}
 

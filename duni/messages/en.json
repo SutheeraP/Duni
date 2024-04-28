@@ -2,7 +2,8 @@
   "Homepage": {
     "minutes": "mins",
     "schedules": "Schedule",
-    "delall": "Delete All"
+    "delall": "Delete All",
+    "interestText": "Movie"
   },
   "Editpage": {
     "interestText": "Information",

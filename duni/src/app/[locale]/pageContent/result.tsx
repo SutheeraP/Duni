@@ -200,7 +200,7 @@ const Page = (
 
                 <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
 
-                    <Link href='/'>
+                    <Link href={`/${lang}`}>
                         <div className='border text-center p-3 bg-white'>{edit}</div>
                     </Link>
                 </div>

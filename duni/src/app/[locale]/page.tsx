@@ -10,6 +10,7 @@ export default function Home() {
       minutes={t('minutes')}
       scheldule={t('schedules')}
       delall={t('delall')}
+      interestText={t('interestText')}
       lang={lang}
       logline={n('logline')}
       l1={n('l1')}
