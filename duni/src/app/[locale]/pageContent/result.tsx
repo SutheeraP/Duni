@@ -4,7 +4,18 @@ import React, { useEffect, useState } from 'react'
 import Nav from '../component/Nav'
 import Link from 'next/link';
 
-const Page = () => {
+const Page = (
+    {
+        movies='',
+        results='',
+        edit='',
+        logline = '',
+        l1 = '',
+        l2 = '',
+        l3 = '',
+        l4 = '',
+    }
+) => {
     const [allData, setAllData] = useState<any[]>([]);
     const [option, setOption] = useState<number[]>([]);
     const [selectLen, setSelectLen] = useState(2);
@@ -149,18 +160,25 @@ const Page = () => {
 
     return (
         <div className='min-h-dvh m-3'>
-            <Nav />
+            <Nav
+            logline={logline}
+            l1={l1}
+            l2={l2}
+            l3={l3}
+            l4={l4}
+            />
+
             <div className='mt-20'>
                 <div className='flex text-center gap-3 justify-center my-3'>
                     {option.map((opt) => (
                         <div key={opt} className={`cursor-pointer border border-black rounded-full w-8 h-8 flex justify-center items-center ${opt == selectLen ? 'bg-black text-white' : ''}`} onClick={() => { setSelectLen(opt) }}>{opt}</div>
                     ))}
-                    {option.length ? <div className='flex items-center'>เรื่อง</div> : null}
+                    {option.length ? <div className='flex items-center'>{movies}</div> : null}
 
                 </div>
 
                 <div className='text-center text-sm'>
-                    {(allData.filter((sequence) => sequence.length == selectLen)).length} ผลลัพธ์
+                    {(allData.filter((sequence) => sequence.length == selectLen)).length} {results}
                 </div>
 
 
@@ -181,7 +199,7 @@ const Page = () => {
                 <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
 
                     <Link href='/'>
-                        <div className='border text-center p-3 bg-white'>แก้ไข</div>
+                        <div className='border text-center p-3 bg-white'>{edit}</div>
                     </Link>
                 </div>
             </div>

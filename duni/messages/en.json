@@ -1,0 +1,33 @@
+{
+  "Homepage": {
+    "minutes": "minutes",
+    "schedules": "Schedule",
+    "delall": "Delete All"
+  },
+  "Editpage": {
+    "interestText": "Information",
+    "titleText": "Title",
+    "durationText": "Duration (mins)",
+    "timeText": "Showtime",
+    "saveText": "Save",
+    "delText": "Delete This",
+    "fb1": "Fill all information.",
+    "fb2": "This title is already used.",
+    "fb3": "Duration must less than 200 minutes.",
+    "sureText": "Delete This?",
+    "cancelText": "Cancel",
+    "confirmText": "Confirm"
+  },
+  "Resultpage": {
+    "movies": "movies",
+    "results": "results",
+    "edit": "edit"
+  },
+  "Navtext": {
+    "logline": "How many movies can you watch in a day?",
+    "l1": "Enter the names, duration, and all the showtimes of the movies you're interested in.",
+    "l2": "Once you've entered all the information, click Schedule.",
+    "l3": "The system will calculate all possible viewing schedules, from most to least, with each showtime being at least 2 hours apart and not overlapping.",
+    "l4": "Enjoy your movie-watching marathon!"
+  }
+}

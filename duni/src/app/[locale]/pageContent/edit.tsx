@@ -5,7 +5,26 @@ import Nav from '../component/Nav'
 import TimeInput from '../component/TimeInput'
 import { useRouter } from 'next/navigation'
 
-const Page = () => {
+const Page = (
+    {
+        interestText = '',
+        titleText = '',
+        durationText = '',
+        timeText = '',
+        saveText = '',
+        delText = '',
+        fb1 = '',
+        fb2 = '',
+        fb3 = '',
+        sureText = '',
+        cancelText = '',
+        confirmText = '',
+        logline = '',
+        l1 = '',
+        l2 = '',
+        l3 = '',
+        l4 = '',
+    }) => {
     const router = useRouter()
 
     const [title, setTitle] = useState('');
@@ -73,13 +92,13 @@ const Page = () => {
 
         //เชค
         if (!title || !duration || !allTime.length) {
-            setFeedback('กรอกข้อมูลให้ครบถ้วน')
+            setFeedback(fb1)
         }
         else if (other.some((data) => data.title === title)) {
-            setFeedback('ชื่อเรื่องนี้ถูกใช้แล้ว')
+            setFeedback(fb2)
         }
         else if (duration > 200) {
-            setFeedback('ความยาวต้องน้อยกว่า 200 นาที')
+            setFeedback(fb3)
         }
         else {
             let uniqueTime = new Set(allTime) //ตัดซ้ำ by set
@@ -128,24 +147,31 @@ const Page = () => {
 
             {sureDel ? <div className='fixed z-20 bg-[#0005] w-full h-full top-0 left-0 flex'>
                 <div className='text-center p-3 bg-white m-auto w-[300px]'>
-                    <div className='py-4'>ลบเรื่องนี้?</div>
+                    <div className='py-4'>{sureText}</div>
                     <div className='grid grid-cols-2'>
-                        <div className="cursor-pointer" onClick={() => { setSureDel(false) }}>ยกเลิก</div>
-                        <div className="cursor-pointer font-bold" onClick={deleteThis}>ยืนยัน</div>
+                        <div className="cursor-pointer" onClick={() => { setSureDel(false) }}>{cancelText}</div>
+                        <div className="cursor-pointer font-bold" onClick={deleteThis}>{confirmText}</div>
                     </div>
                 </div>
             </div> : null}
 
-            <Nav />
+            <Nav
+                logline={logline}
+                l1={l1}
+                l2={l2}
+                l3={l3}
+                l4={l4}
+            />
+
             <div className='mt-20'>
                 <div className='flex flex-col gap-2'>
-                    <div className='font-bold'>เรื่องที่สนใจ</div>
-                    <input id='inputTitle' maxLength={15} className='border p-1' type="text" placeholder='ชื่อเรื่อง'
+                    <div className='font-bold'>{interestText}</div>
+                    <input id='inputTitle' maxLength={15} className='border p-1' type="text" placeholder={titleText}
                         onChange={(e) => { setTitle(e.target.value) }} />
-                    <input id='inputDuration' className='border p-1' type="number" placeholder='ความยาว(นาที)'
+                    <input id='inputDuration' className='border p-1' type="number" placeholder={durationText}
                         onChange={(e) => { setDuration(parseInt(e.target.value)) }} />
 
-                    <div className='font-bold'>รอบฉาย</div>
+                    <div className='font-bold'>{timeText}</div>
                     <div className='grid grid-cols-4 gap-3 text-sm'>
                         {numTimeInput.map((number, index) => (
                             <div key={index}>
@@ -159,8 +185,8 @@ const Page = () => {
 
                     <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
 
-                        <div className='border p-3 text-center bg-white' onClick={validateEdit}>บันทึก</div>
-                        <div className='text-center underline text-sm mt-2' onClick={() => { setSureDel(true) }}>ลบเรื่องนี้</div>
+                        <div className='border p-3 text-center bg-white' onClick={validateEdit}>{saveText}</div>
+                        <div className='text-center underline text-sm mt-2' onClick={() => { setSureDel(true) }}>{delText}</div>
                     </div>
                 </div>
             </div>

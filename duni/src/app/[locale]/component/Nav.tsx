@@ -1,7 +1,16 @@
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
-const Nav = () => {
+const Nav = (
+    {
+        logline='',
+        l1='',
+        l2='',
+        l3='',
+        l4='',
+    }
+) => {
     const [showInfo, setShowinfo] = useState(false)
 
     return (
@@ -23,14 +32,14 @@ const Nav = () => {
                     <div className='m-auto max-w-screen-sm px-4 flex flex-col gap-8'>
                         <div className='text-center'>
                             <div className='font-bold text-xl'>DUNI</div>
-                            <div className='text-sm'>ในหนึ่งวันจะดูได้กี่เรื่อง ดูนี่</div>
+                            <div className='text-sm'>{logline}</div>
                         </div>
 
                         <ol className="list-decimal pl-4 text-sm">
-                            <li>กรอกชื่อภาพยนตร์ ความยาว และรอบฉายทั้งหมดที่ท่านสนใจ (ใช้นาฬิกา 24 ชั่วโมง)</li>
-                            <li>เมื่อกรอกครบแล้วกดคิดรอบ</li>
-                            <li>ระบบจะคำนวณรูปแบบการรับชมทั้งหมด โดยแต่ละรอบจะห่างกันอย่างน้อย 2 ชั่วโมง และไม่ฉายทับกัน (หากมีรูปแบบซ้ำกันแต่คนละเวลา จะเลือกเวลาที่ดีที่สุดให้)</li>
-                            <li>ไปดูหนังกันได้เลยจ้า</li>
+                            <li>{l1}</li>
+                            <li>{l2}</li>
+                            <li>{l3}</li>
+                            <li>{l4}</li>
                         </ol>
 
                         <div className='text-center'>
