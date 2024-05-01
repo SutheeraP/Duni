@@ -15,6 +15,8 @@ const Page = (
         l3 = '',
         l4 = '',
         lang='',
+        seq = '',
+        min ='',
     }
 ) => {
     const [allData, setAllData] = useState<any[]>([]);
@@ -31,6 +33,8 @@ const Page = (
     interface res {
         title: string;
         showTime: string;
+        endTime: string;
+        duration: number;
     }
 
     // scheduel = []
@@ -46,6 +50,15 @@ const Page = (
         // allD ? setAllData(JSON.parse(allD)) : null
         // allD ? setAllData(JSON.parse(allD)) : null
     }, [])
+
+    function calculateEndTime(showtime: string, duration: number) {
+        const showtimeDate = new Date(`2024-05-01T${showtime}:00`); // string > date
+        const durationMs = duration * 60 * 1000; // duramin > millisec
+        const endTimeMs = showtimeDate.getTime() + durationMs; // millisec end time
+        const endTime = new Date(endTimeMs); //แปลงกลับเป็น date obkect
+        const endTimeStr = endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }); //date > string time
+        return endTimeStr;
+    }
 
     function findMovieSchedules(movies: obj[]) {
         // Stores all possible movie schedules
@@ -82,13 +95,14 @@ const Page = (
                 isValidTime(showtime, startTime)
             );
             if (validShowtimes[0]) {
-                const showtime = validShowtimes[0];
+                const showtimee = validShowtimes[0];
+                const endTimee = calculateEndTime(showtimee, nextMovie.duration);
                 const newSchedule = [
                     ...currentSchedule,
-                    { title: nextMovie.title, showTime: showtime },
+                    { title: nextMovie.title, showTime: showtimee, endTime:endTimee, duration: nextMovie.duration },
                 ]; // Copy and add movie to schedule
                 const nextStartTime =
-                    convertMinutes(showtime) +
+                    convertMinutes(showtimee) +
                     (nextMovie.duration < 120 ? 120 : nextMovie.duration);
                 backtrack(
                     [...remainingMovies.filter((m) => m !== nextMovie)],
@@ -97,6 +111,8 @@ const Page = (
                 );
             }
         }
+
+
 
         function isValidTime(showtime: string, prevEndTime: number) {
             const showtimeMinutes = convertMinutes(showtime);
@@ -127,6 +143,7 @@ const Page = (
         const schedules = findMovieSchedules(movies);
 
         if (schedules.length) {
+            console.log(schedules)
             // list > json > set > list
             const stringifiedArrays = schedules.map(arr => JSON.stringify(arr));
             const uniqueSet = new Set(stringifiedArrays);
@@ -151,11 +168,11 @@ const Page = (
             // uniqueSchedule.forEach((schedule) => {
             //     console.log(
             //         "  - ",
-            //         schedule.map((movie: obj) => `${movie.title} (${movie.showTime})`).join(", ")
+            //         schedule.map((movie: res) => `${movie.title} (${movie.showTime})`).join(", ")
             //     );
             // });
         } else {
-            console.log("No possible");
+            // console.log("No possible");
         }
     }
 
@@ -185,12 +202,15 @@ const Page = (
 
 
                 <div className='flex flex-col gap-6 py-6'>
-                    {(allData.filter((sequence) => sequence.length == selectLen)).map((sequence, index) => (
-                        <div key={index} className='drop-shadow-fade bg-back p-4 rounded-md'>
+                    {(allData.filter((sequence, index) => sequence.length == selectLen)).map((sequence, index) => (
+                        <div key={index} className='drop-shadow-fade bg-back py-4 rounded-md text-white'>
+                            <div className=' border-b border-[#88DAB320] pb-3 mb-3 px-4 font-semibold text-light'>{seq} {index+1}</div>
                             {sequence.map((data: res, index: number) => (
-                                <div key={index} className='grid grid-cols-5 gap-4 text-white'>
+                                <div key={index} className='grid grid-cols-5 gap-x-4  px-4 py-1'>
                                     <div className='col-span-1'>{data.showTime}</div>
                                     <div className='col-span-4'>{data.title}</div>
+                                    <div className='col-span-1 text-xs text-fade'>{data.endTime}</div>
+                                    <div className='col-span-4 text-xs text-fade'>{data.duration} {min}</div>
                                 </div>
                             ))}
                         </div>

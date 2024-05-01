@@ -100,8 +100,8 @@ const Home = (
 
         {allData.map((data, index) => (
           <div key={index} className={`p-4 bg-back rounded-md drop-shadow-fade ${data.isShow ? '' : 'opacity-50'}`}>
-            <div className="grid grid-cols-5">
-              <div className="col-span-3">
+            <div className="flex">
+              <div className="grow">
                 <div className="font-semibold">{data.title}</div>
                 <div className="font-light text-sm text-fade flex gap-1">
                   <Image src={'/time.svg'} alt="edit icon" width={15} height={15} />
@@ -110,7 +110,7 @@ const Home = (
                   </div>
                 </div>
               </div>
-              <div className="col-span-2 flex justify-end gap-3">
+              <div className="flex justify-end gap-3">
                 <div className="cursor-pointer " onClick={() => handleEdit(index)}>
                   <Image src={'/edit.svg'} alt="edit icon" width={30} height={30} />
                 </div>

@@ -100,7 +100,7 @@ const Page = (
         else if (other.some((data) => data.title === title)) {
             setFeedback(fb2)
         }
-        else if (duration > 200) {
+        else if (duration > 300) {
             setFeedback(fb3)
         }
         else {
@@ -173,7 +173,7 @@ const Page = (
             <div className='mt-20'>
                 <div className='flex flex-col gap-3'>
                     <div className='font-semibold'>{interestText}</div>
-                    <input id='inputTitle' maxLength={15} className='p-2.5 bg-btn rounded-md focus:border focus:border-light focus:outline-none' type="text" placeholder={titleText}
+                    <input id='inputTitle' maxLength={20} className='p-2.5 bg-btn rounded-md focus:border focus:border-light focus:outline-none' type="text" placeholder={titleText}
                         onChange={(e) => { setTitle(e.target.value) }} />
                     <input id='inputDuration' className='p-2.5 bg-btn rounded-md focus:border focus:border-light focus:outline-none' type="number" placeholder={durationText}
                         onChange={(e) => { setDuration(parseInt(e.target.value)) }} />

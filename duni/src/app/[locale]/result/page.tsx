@@ -10,6 +10,8 @@ const Page = () => {
         movies={t('movies')}
         results={t('results')}
         edit={t('edit')}
+        seq={t('seq')}
+        min={t('min')}
         logline={n('logline')}
       l1={n('l1')}
       l2={n('l2')}

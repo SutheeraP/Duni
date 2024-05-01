@@ -17,7 +17,7 @@
     "delText": "Delete This",
     "fb1": "Fill all information.",
     "fb2": "This title is already used.",
-    "fb3": "Duration must less than 200 minutes.",
+    "fb3": "Duration must less than 300 minutes.",
     "sureText": "Delete This?",
     "cancelText": "Cancel",
     "confirmText": "Confirm"
@@ -25,7 +25,9 @@
   "Resultpage": {
     "movies": "movies",
     "results": "results",
-    "edit": "edit"
+    "edit": "edit",
+    "seq": "No.",
+    "min": "mins"
   },
   "Navtext": {
     "logline": "How many movies can you watch in a day?",
