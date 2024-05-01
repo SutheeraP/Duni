@@ -72,7 +72,7 @@ const Home = (
 
 
   return (
-    <div className="min-h-dvh bg-back px-4 text-white">
+    <div className=" bg-back px-4 text-white">
 
       {sureDel ? <div className='fixed z-20 bg-[#0005] w-full h-full top-0 left-0 flex'>
         <div className='text-center bg-btn rounded-lg m-auto w-[350px]'>
@@ -96,7 +96,7 @@ const Home = (
         lang={lang}
       />
 
-      <div className="mt-20 mb-40 flex flex-col gap-6">
+      <div className="mt-20 py-4 flex flex-col gap-6">
 
         {allData.map((data, index) => (
           <div key={index} className={`drop-shadow-fade bg-back p-4 rounded-md ${data.isShow ? '' : 'opacity-50'}`}>
@@ -138,6 +138,7 @@ const Home = (
           </div>
           : null}
 
+        <div className='py-16'></div>
 
         {(allData.filter((data) => data.isShow)).length >= 2 ?
           <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-8">

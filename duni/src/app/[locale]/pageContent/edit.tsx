@@ -187,13 +187,12 @@ const Page = (
                         ))}
                     </div>
                     {feedback ?
-                        <div className='text-red-600 text-sm'>{feedback}</div> : null
+                        <div className='text-red-400 text-sm'>{feedback}</div> : null
                     }
 
                     <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
-
                         <div className='cursor-pointer rounded-md p-4 bg-btn text-light font-bold' onClick={validateEdit}>{saveText}</div>
-                        <div className='text-center underline text-sm mt-2 text-fade' onClick={() => { setSureDel(true) }}>{delText}</div>
+                        <div className='cursor-pointer text-center underline text-sm mt-2 text-fade' onClick={() => { setSureDel(true) }}>{delText}</div>
                     </div>
                 </div>
             </div>

@@ -160,7 +160,7 @@ const Page = (
     }
 
     return (
-        <div className='min-h-dvh px-4'>
+        <div className='px-4'>
             <Nav
             logline={logline}
             l1={l1}
@@ -184,8 +184,7 @@ const Page = (
                 </div>
 
 
-                <div className='flex flex-col gap-6 my-3 mb-40'>
-
+                <div className='flex flex-col gap-6 py-6'>
                     {(allData.filter((sequence) => sequence.length == selectLen)).map((sequence, index) => (
                         <div key={index} className='drop-shadow-fade bg-back p-4 rounded-md'>
                             {sequence.map((data: res, index: number) => (
@@ -198,8 +197,9 @@ const Page = (
                     ))}
                 </div>
 
-                <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-8">
+                <div className='py-16'></div>
 
+                <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-8">
                     <Link href={`/${lang}`}>
                         <div className='cursor-pointer rounded-md p-4 bg-btn text-light font-bold'>{edit}</div>
                     </Link>
