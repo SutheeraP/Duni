@@ -69,7 +69,9 @@ const Nav = (
                         </ol>
 
                         <div className='text-center'>
-                            <div className='cursor-pointer rounded-md p-4 bg-btn text-light font-bold'>FEEDBACK</div>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-D42G1XEr1ZXwhuT0U38HRlT0dvpEodyeR0BAK7GbJ8JV-g/viewform" target='_blank'>
+                                <div className='cursor-pointer rounded-md p-4 bg-btn text-light font-bold'>FEEDBACK</div>
+                            </a>
                             <div className='text-xs mt-3 text-fade font-light'>©2024 sutheerap</div>
                         </div>
                     </div>
@@ -81,8 +83,8 @@ const Nav = (
                     <div className='m-auto max-w-screen-sm px-4 flex flex-col gap-8'>
 
                         <div className='flex gap-4'>
-                            <div onClick={() => { setLang('th') }} className={`cursor-pointer rounded-full w-16 h-16 flex justify-center items-center font-bold ${lang == 'th' ? 'border-light bg-light text-back':'border border-fade text-fade'}`}>TH</div>
-                            <div onClick={() => { setLang('en') }} className={`cursor-pointer rounded-full w-16 h-16 flex justify-center items-center font-bold ${lang == 'en' ? 'border-light bg-light text-back':'border border-fade text-fade'}`}>EN</div>
+                            <div onClick={() => { setLang('th') }} className={`cursor-pointer rounded-full w-16 h-16 flex justify-center items-center font-bold ${lang == 'th' ? 'border-light bg-light text-back' : 'border border-fade text-fade'}`}>TH</div>
+                            <div onClick={() => { setLang('en') }} className={`cursor-pointer rounded-full w-16 h-16 flex justify-center items-center font-bold ${lang == 'en' ? 'border-light bg-light text-back' : 'border border-fade text-fade'}`}>EN</div>
                         </div>
                     </div>
                 </div>
