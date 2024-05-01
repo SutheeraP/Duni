@@ -154,9 +154,9 @@ const Page = (
                         <div className='flex justify-center items-center'><Image src={'/trash.svg'} alt="edit icon" width={80} height={80} /></div>
                         {sureText}
                     </div>
-                    <div className='grid grid-cols-2 bg-back py-4 text-sm'>
-                        <div className="cursor-pointer text-fade" onClick={() => { setSureDel(false) }}>{cancelText}</div>
-                        <div className="cursor-pointer font-semibold" onClick={deleteThis}>{confirmText}</div>
+                    <div className='grid grid-cols-2 bg-back  text-sm'>
+                        <div className="cursor-pointer text-fade py-4" onClick={() => { setSureDel(false) }}>{cancelText}</div>
+                        <div className="cursor-pointer font-semibold py-4" onClick={deleteThis}>{confirmText}</div>
                     </div>
                 </div>
             </div> : null}
