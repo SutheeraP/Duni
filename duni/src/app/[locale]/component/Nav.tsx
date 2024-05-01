@@ -29,24 +29,22 @@ const Nav = (
     }
 
     return (
-        <div className='fixed top-0 left-0 z-10 w-full'>
-            <div className='grid grid-cols-3 p-3 relative z-10 bg-white max-w-screen-sm mx-auto'>
+        <div className='fixed top-0 left-0 z-10 w-full bg-back'>
+            <div className='grid grid-cols-3 p-4 relative z-10 max-w-screen-sm mx-auto text-white'>
                 <div className='cursor-pointer w-full flex justify-start' onClick={() => { setShowinfo(!showInfo); setShowSetting(false) }}>?</div>
                 <div className='w-full'>
                     <Link href={`/${lang}`}>
-                        <div className='text-center font-bold'>DUNI</div>
+                        <div className='text-center font-bold text-light'>DUNI</div>
                     </Link>
                 </div>
                 <div className='cursor-pointer w-full flex justify-end' onClick={() => { setShowSetting(!showSetting); setShowinfo(false) }}>O</div>
             </div>
 
-            <hr />
-
             {showInfo ?
-                <div className='absolute top-0 w-full h-dvh z-0 bg-white flex'>
+                <div className='absolute top-0 w-full h-dvh z-0 bg-back flex text-white'>
                     <div className='m-auto max-w-screen-sm px-4 flex flex-col gap-8'>
                         <div className='text-center'>
-                            <div className='font-bold text-xl'>DUNI</div>
+                            <div className='font-bold text-3xl text-light'>DUNI</div>
                             <div className='text-sm'>{logline}</div>
                         </div>
 
@@ -58,15 +56,15 @@ const Nav = (
                         </ol>
 
                         <div className='text-center'>
-                            <div className='border p-2'>FEEDBACK</div>
-                            <div className='text-xs mt-3'>©2024 sutheerap</div>
+                            <div className='cursor-pointer rounded-md p-4 bg-btn text-light font-bold'>FEEDBACK</div>
+                            <div className='text-xs mt-3 text-fade font-light'>©2024 sutheerap</div>
                         </div>
                     </div>
                 </div>
                 : null}
 
             {showSetting ?
-                <div className='absolute top-0 w-full h-dvh z-0 bg-white flex'>
+                <div className='absolute top-0 w-full h-dvh z-0 bg-back flex'>
                     <div className='m-auto max-w-screen-sm px-4 flex flex-col gap-8'>
                         <div onClick={toggleLang}>{lang.toUpperCase()}</div>
                     </div>

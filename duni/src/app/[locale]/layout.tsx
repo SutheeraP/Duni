@@ -21,7 +21,7 @@ export default function RootLayout({
   params: {locale},
 }: Readonly<RootLayoutProps>) {
   return (
-    <html lang={locale}>
+    <html lang={locale} className="bg-back">
       <body className={inter.className}>
         <div className="max-w-screen-sm mx-auto">
           {children}

@@ -160,7 +160,7 @@ const Page = (
     }
 
     return (
-        <div className='min-h-dvh m-3'>
+        <div className='min-h-dvh px-4'>
             <Nav
             logline={logline}
             l1={l1}
@@ -173,35 +173,35 @@ const Page = (
             <div className='mt-20'>
                 <div className='flex text-center gap-3 justify-center my-3'>
                     {option.map((opt) => (
-                        <div key={opt} className={`cursor-pointer border border-black rounded-full w-8 h-8 flex justify-center items-center ${opt == selectLen ? 'bg-black text-white' : ''}`} onClick={() => { setSelectLen(opt) }}>{opt}</div>
+                        <div key={opt} className={`cursor-pointer border border-light rounded-full w-8 h-8 flex justify-center items-center ${opt == selectLen ? 'bg-light text-back' : 'text-light'}`} onClick={() => { setSelectLen(opt) }}>{opt}</div>
                     ))}
-                    {option.length ? <div className='flex items-center'>{movies}</div> : null}
+                    {option.length ? <div className='flex items-center text-light'>{movies}</div> : null}
 
                 </div>
 
-                <div className='text-center text-sm'>
+                <div className='text-center text-sm text-fade'>
                     {(allData.filter((sequence) => sequence.length == selectLen)).length} {results}
                 </div>
 
 
-                <div className='flex flex-col gap-3 my-3'>
+                <div className='flex flex-col gap-6 my-3 mb-40'>
 
                     {(allData.filter((sequence) => sequence.length == selectLen)).map((sequence, index) => (
-                        <div key={index} className='border p-3'>
+                        <div key={index} className='drop-shadow-fade bg-back p-4 rounded-md'>
                             {sequence.map((data: res, index: number) => (
-                                <div key={index} className='grid grid-cols-5 gap-4'>
+                                <div key={index} className='grid grid-cols-5 gap-4 text-white'>
                                     <div className='col-span-1'>{data.showTime}</div>
-                                    <div className='col-span-4'>| {data.title}</div>
+                                    <div className='col-span-4'>{data.title}</div>
                                 </div>
                             ))}
                         </div>
                     ))}
                 </div>
 
-                <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
+                <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-8">
 
                     <Link href={`/${lang}`}>
-                        <div className='border text-center p-3 bg-white'>{edit}</div>
+                        <div className='cursor-pointer rounded-md p-4 bg-btn text-light font-bold'>{edit}</div>
                     </Link>
                 </div>
             </div>

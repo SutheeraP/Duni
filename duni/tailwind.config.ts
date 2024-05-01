@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+const colors = require("tailwindcss/colors");
+
 
 const config: Config = {
   content: [
@@ -14,6 +16,16 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+    colors:{
+      ...colors,
+      back: '#141A1C',
+      btn: '#1D2A30',
+      light: '#88DAB3',
+      fade: '#8CA39F',
+    },
+    dropShadow: {
+      'fade': '0 0 5px #88DAB320',
+    }
   },
   plugins: [],
 };

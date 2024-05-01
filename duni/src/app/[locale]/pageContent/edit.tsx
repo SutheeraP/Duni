@@ -70,7 +70,8 @@ const Page = (
             let allTime: string[] = []
             const btnTime = document.querySelectorAll('.timeInp')
             for (let i = 0; i < allD[index].showTime.length; i++) {
-                (btnTime[i] as HTMLInputElement).value = allD[index].showTime[i]
+                (btnTime[i] as HTMLInputElement).value = allD[index].showTime[i];
+                (btnTime[i] as HTMLInputElement).className += ' border border-light text-light'
                 allTime.push(allD[index].showTime[i])
             }
         }
@@ -144,7 +145,7 @@ const Page = (
     }
 
     return (
-        <div className='m-3'>
+        <div className='px-4 text-white'>
 
             {sureDel ? <div className='fixed z-20 bg-[#0005] w-full h-full top-0 left-0 flex'>
                 <div className='text-center p-3 bg-white m-auto w-[300px]'>
@@ -166,11 +167,11 @@ const Page = (
             />
 
             <div className='mt-20'>
-                <div className='flex flex-col gap-2'>
-                    <div className='font-bold'>{interestText}</div>
-                    <input id='inputTitle' maxLength={15} className='border p-1' type="text" placeholder={titleText}
+                <div className='flex flex-col gap-3'>
+                    <div className='font-semibold'>{interestText}</div>
+                    <input id='inputTitle' maxLength={15} className='p-2.5 bg-btn rounded-md focus:border focus:border-light focus:outline-none' type="text" placeholder={titleText}
                         onChange={(e) => { setTitle(e.target.value) }} />
-                    <input id='inputDuration' className='border p-1' type="number" placeholder={durationText}
+                    <input id='inputDuration' className='p-2.5 bg-btn rounded-md focus:border focus:border-light focus:outline-none' type="number" placeholder={durationText}
                         onChange={(e) => { setDuration(parseInt(e.target.value)) }} />
 
                     <div className='font-bold'>{timeText}</div>
@@ -187,8 +188,8 @@ const Page = (
 
                     <div className="text-center fixed w-full max-w-screen-sm bottom-0 mb-8 pr-6">
 
-                        <div className='border p-3 text-center bg-white' onClick={validateEdit}>{saveText}</div>
-                        <div className='text-center underline text-sm mt-2' onClick={() => { setSureDel(true) }}>{delText}</div>
+                        <div className='cursor-pointer rounded-md p-4 bg-btn text-light font-bold' onClick={validateEdit}>{saveText}</div>
+                        <div className='text-center underline text-sm mt-2 text-fade' onClick={() => { setSureDel(true) }}>{delText}</div>
                     </div>
                 </div>
             </div>

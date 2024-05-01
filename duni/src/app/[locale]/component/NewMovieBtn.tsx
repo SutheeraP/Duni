@@ -10,7 +10,7 @@ const NewMovieBtn = (
     return (
         <div>
             <Link href={`/${lang}/edit`}>
-                <div className='border p-3 text-center'>
+                <div className='drop-shadow-fade bg-back py-8 rounded-md text-center'>
                     + {text}
                 </div>
             </Link>
