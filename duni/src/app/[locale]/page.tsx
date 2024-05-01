@@ -17,6 +17,9 @@ export default function Home() {
       l2={n('l2')}
       l3={n('l3')}
       l4={n('l4')}
+      sureText={t('sureText')}
+      cancelText={t('cancelText')}
+      confirmText={t('confirmText')}
     />
 
   )

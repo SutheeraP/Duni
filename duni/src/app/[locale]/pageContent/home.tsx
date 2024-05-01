@@ -5,6 +5,7 @@ import Nav from "../component/Nav";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation'
 import Link from "next/link";
+import Image from "next/image";
 
 const Home = (
   {
@@ -17,7 +18,10 @@ const Home = (
     l2 = '',
     l3 = '',
     l4 = '',
-    interestText = ''
+    interestText = '',
+    sureText = '',
+    cancelText = '',
+    confirmText = '',
   }) => {
   //   const t = useTranslations('Index');
   const router = useRouter()
@@ -70,24 +74,27 @@ const Home = (
   return (
     <div className="min-h-dvh bg-back px-4 text-white">
 
-      {sureDel ? <div className='fixed z-20 bg-btn w-full h-full top-0 left-0 flex'>
-        <div className='text-center p-3 bg-white m-auto w-[300px]'>
-          <div className='py-4'>ลบข้อมูลทั้งหมด?</div>
-          <div className='grid grid-cols-2'>
-            <div className="cursor-pointer" onClick={() => { setSureDel(false) }}>ยกเลิก</div>
-            <div className="cursor-pointer font-bold" onClick={deleteAll}>ยืนยัน</div>
+      {sureDel ? <div className='fixed z-20 bg-[#0005] w-full h-full top-0 left-0 flex'>
+        <div className='text-center bg-btn rounded-lg m-auto w-[350px]'>
+          <div className='py-6'>
+            <div className='flex justify-center items-center'><Image src={'/trash.svg'} alt="edit icon" width={80} height={80} /></div>
+            {sureText}
+          </div>
+          <div className='grid grid-cols-2 bg-back py-4 text-sm'>
+            <div className="cursor-pointer text-fade" onClick={() => { setSureDel(false) }}>ยกเลิก</div>
+            <div className="cursor-pointer font-semibold" onClick={deleteAll}>ยืนยัน</div>
           </div>
         </div>
       </div> : null}
 
       <Nav
-            logline={logline}
-            l1={l1}
-            l2={l2}
-            l3={l3}
-            l4={l4}
-            lang={lang}
-            />
+        logline={logline}
+        l1={l1}
+        l2={l2}
+        l3={l3}
+        l4={l4}
+        lang={lang}
+      />
 
       <div className="mt-20 mb-40 flex flex-col gap-6">
 
@@ -96,15 +103,26 @@ const Home = (
             <div className="grid grid-cols-5">
               <div className="col-span-3">
                 <div className="font-semibold">{data.title}</div>
-                <div className="font-light text-sm text-fade">{data.duration} {minutes}</div>
+                <div className="font-light text-sm text-fade flex gap-1">
+                  <Image src={'/time.svg'} alt="edit icon" width={15} height={15} />
+                  <div>
+                    {data.duration} {minutes}
+                  </div>
+                </div>
               </div>
               <div className="col-span-2 flex justify-end gap-3">
-                <div className="cursor-pointer " onClick={() => handleEdit(index)}>edit</div>
-                <div className="cursor-pointer " onClick={() => toggleShow(index)}>show</div>
+                <div className="cursor-pointer " onClick={() => handleEdit(index)}>
+                  <Image src={'/edit.svg'} alt="edit icon" width={30} height={30} />
+                </div>
+                <div className="cursor-pointer " onClick={() => toggleShow(index)}>
+                  {data.isShow ?
+                    <Image src={'/showOn.svg'} alt="edit icon" width={30} height={30} /> :
+                    <Image src={'/showOff.svg'} alt="edit icon" width={30} height={30} />}
+                </div>
               </div>
             </div>
 
-            <div className="flex mt-2 text-sm gap-3">
+            <div className="flex mt-4 text-sm gap-3">
               {data.showTime.map((time, index) => (
                 <div key={index} className="border border-fade py-1 px-2 text-center text-fade rounded-md">{time}</div>
               ))}
@@ -116,7 +134,7 @@ const Home = (
 
         {allData.length < 8 ?
           <div onClick={() => (handleEdit(allData.length))}>
-            <NewMovieBtn text={interestText} lang={lang}/>
+            <NewMovieBtn text={interestText} lang={lang} />
           </div>
           : null}
 

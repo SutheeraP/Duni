@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Nav from '../component/Nav'
 import TimeInput from '../component/TimeInput'
 import { useRouter } from 'next/navigation'
+import Image from "next/image";
 
 const Page = (
     {
@@ -24,7 +25,7 @@ const Page = (
         l2 = '',
         l3 = '',
         l4 = '',
-        lang='',
+        lang = '',
     }) => {
     const router = useRouter()
 
@@ -148,11 +149,14 @@ const Page = (
         <div className='px-4 text-white'>
 
             {sureDel ? <div className='fixed z-20 bg-[#0005] w-full h-full top-0 left-0 flex'>
-                <div className='text-center p-3 bg-white m-auto w-[300px]'>
-                    <div className='py-4'>{sureText}</div>
-                    <div className='grid grid-cols-2'>
-                        <div className="cursor-pointer" onClick={() => { setSureDel(false) }}>{cancelText}</div>
-                        <div className="cursor-pointer font-bold" onClick={deleteThis}>{confirmText}</div>
+                <div className='text-center bg-btn rounded-lg m-auto w-[350px]'>
+                    <div className='py-6'>
+                        <div className='flex justify-center items-center'><Image src={'/trash.svg'} alt="edit icon" width={80} height={80} /></div>
+                        {sureText}
+                    </div>
+                    <div className='grid grid-cols-2 bg-back py-4 text-sm'>
+                        <div className="cursor-pointer text-fade" onClick={() => { setSureDel(false) }}>{cancelText}</div>
+                        <div className="cursor-pointer font-semibold" onClick={deleteThis}>{confirmText}</div>
                     </div>
                 </div>
             </div> : null}
@@ -174,7 +178,7 @@ const Page = (
                     <input id='inputDuration' className='p-2.5 bg-btn rounded-md focus:border focus:border-light focus:outline-none' type="number" placeholder={durationText}
                         onChange={(e) => { setDuration(parseInt(e.target.value)) }} />
 
-                    <div className='font-bold'>{timeText}</div>
+                    <div className='font-semibold'>{timeText}</div>
                     <div className='grid grid-cols-4 gap-3 text-sm'>
                         {numTimeInput.map((number, index) => (
                             <div key={index}>

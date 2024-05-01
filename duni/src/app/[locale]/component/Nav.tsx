@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from "next/image";
 
 const Nav = (
     {
@@ -28,16 +29,28 @@ const Nav = (
         router.push(newPath)
     }
 
+    const setLang = (newLang: string) => {
+        let newPath
+        if (newLang != lang) {
+            newPath = pathname.replace(lang, newLang)
+            router.push(newPath)
+        }
+    }
+
     return (
         <div className='fixed top-0 left-0 z-10 w-full bg-back'>
             <div className='grid grid-cols-3 p-4 relative z-10 max-w-screen-sm mx-auto text-white'>
-                <div className='cursor-pointer w-full flex justify-start' onClick={() => { setShowinfo(!showInfo); setShowSetting(false) }}>?</div>
+                <div className='cursor-pointer w-full flex justify-start' onClick={() => { setShowinfo(!showInfo); setShowSetting(false) }}>
+                    {showInfo ? <Image src={'/infoOn.svg'} alt='info icon' width={25} height={25} /> : <Image src={'/infoOff.svg'} alt='info icon' width={25} height={25} />}
+                </div>
                 <div className='w-full'>
                     <Link href={`/${lang}`}>
-                        <div className='text-center font-bold text-light'>DUNI</div>
+                        <div className='text-center font-bold text-light' onClick={() => { setShowinfo(false); setShowSetting(false) }}>DUNI</div>
                     </Link>
                 </div>
-                <div className='cursor-pointer w-full flex justify-end' onClick={() => { setShowSetting(!showSetting); setShowinfo(false) }}>O</div>
+                <div className='cursor-pointer w-full flex justify-end' onClick={() => { setShowSetting(!showSetting); setShowinfo(false) }}>
+                    {showSetting ? <Image src={'/setOn.svg'} alt='info icon' width={25} height={25} /> : <Image src={'/setOff.svg'} alt='info icon' width={25} height={25} />}
+                </div>
             </div>
 
             {showInfo ?
@@ -64,9 +77,13 @@ const Nav = (
                 : null}
 
             {showSetting ?
-                <div className='absolute top-0 w-full h-dvh z-0 bg-back flex'>
+                <div className='absolute top-0 w-full h-dvh z-0 bg-back flex text-white'>
                     <div className='m-auto max-w-screen-sm px-4 flex flex-col gap-8'>
-                        <div onClick={toggleLang}>{lang.toUpperCase()}</div>
+
+                        <div className='flex gap-4'>
+                            <div onClick={() => { setLang('th') }} className={`cursor-pointer rounded-full w-16 h-16 flex justify-center items-center font-bold ${lang == 'th' ? 'border-light bg-light text-back':'border border-fade text-fade'}`}>TH</div>
+                            <div onClick={() => { setLang('en') }} className={`cursor-pointer rounded-full w-16 h-16 flex justify-center items-center font-bold ${lang == 'en' ? 'border-light bg-light text-back':'border border-fade text-fade'}`}>EN</div>
+                        </div>
                     </div>
                 </div>
                 : null}

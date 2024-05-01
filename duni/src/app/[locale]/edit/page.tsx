@@ -18,9 +18,9 @@ const Page = () => {
             fb1={t('fb1')}
             fb2={t('fb2')}
             fb3={t('fb3')}
-            sureText={t('fb3')}
-            cancelText={t('fb3')}
-            confirmText={t('fb3')}
+            sureText={t('sureText')}
+            cancelText={t('cancelText')}
+            confirmText={t('confirmText')}
             logline={n('logline')}
             l1={n('l1')}
             l2={n('l2')}

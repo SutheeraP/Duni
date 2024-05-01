@@ -3,7 +3,10 @@
     "minutes": "mins",
     "schedules": "Schedule",
     "delall": "Delete All",
-    "interestText": "Movie"
+    "interestText": "Movie",
+    "sureText": "Delete All?",
+    "cancelText": "Cancel",
+    "confirmText": "Confirm"
   },
   "Editpage": {
     "interestText": "Information",
