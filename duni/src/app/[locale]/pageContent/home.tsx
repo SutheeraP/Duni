@@ -99,7 +99,7 @@ const Home = (
       <div className="mt-20 py-4 flex flex-col gap-6">
 
         {allData.map((data, index) => (
-          <div key={index} className={`drop-shadow-fade p-4 rounded-md transition-all ${data.isShow ? 'bg-back' : 'opacity-50 bg-none'}`}>
+          <div key={index} className={`drop-shadow-fade p-4 rounded-md ${data.isShow ? 'bg-back' : 'opacity-50 bg-none'}`}>
             <div className="grid grid-cols-5">
               <div className="col-span-3">
                 <div className="font-semibold">{data.title}</div>
